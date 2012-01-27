@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.baderjene.aisparser</groupId>
 	<artifactId>aisparser</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>AIS Parser</name>
 	<organization>
 		<name>Bader&amp;Jene Software-Ingenieurbüro GmbH</name>
