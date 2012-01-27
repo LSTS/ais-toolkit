@@ -1,4 +1,5 @@
 #summary This article describes the installation and usage of the AIS Webservice
+#labels Featured
 
 To use the AIS webservice out of the box you first have to install Tomcat and an PostgreSQL server. 
 
