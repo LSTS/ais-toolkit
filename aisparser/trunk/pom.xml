@@ -2,17 +2,16 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.baderjene.aisparser</groupId>
 	<artifactId>aisparser</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>AIS Parser</name>
 	<organization>
 		<name>Bader&amp;Jene Software-Ingenieurbüro GmbH</name>
 		<url>http://www.bader-jene.de</url>
 	</organization>
 	<scm>
-		<url>http://code.google.com/p/ais-toolkit/source/browse/tags/aisparser-0.0.1</url>
-		<connection>scm:svn:https://ais-toolkit.googlecode.com/svn/aisparser/tags/aisparser-0.0.1</connection>
-		<developerConnection>scm:svn:https://ais-toolkit.googlecode.com/svn/aisparser/tags/aisparser-0.0.1</developerConnection>
-		<tag>HEAD</tag>
+		<url>http://code.google.com/p/ais-toolkit/source/browse/</url>
+		<connection>scm:svn:https://ais-toolkit.googlecode.com/svn/aisparser</connection>
+		<developerConnection>scm:svn:https://ais-toolkit.googlecode.com/svn/aisparser</developerConnection>
 	</scm>
 	<issueManagement>
 		<system>Google Code</system>
