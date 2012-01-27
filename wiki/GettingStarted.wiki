@@ -1,0 +1,25 @@
+#summary This article describes how to use the AIS parser in your own Java project.
+#labels Featured
+
+= Receiving parsed messages =
+
+The AIS Parser uses the observer pattern to inform you about parsed AIS messages. This is needed because some AIS messages consist of more than one packet so that the result could not always be processed immediately. You only have to implement the interface _AISObserver_ and register the current object at the parser.
+
+{{{
+public class MyAISObserver implements AISObserver {
+   
+   public MyAISObserver(AISParser parser) {      
+      parser.register(this);
+   }
+
+   @Override
+   public void update(final PositionReportDTO positionReport) {
+      // do something with the position report
+   }
+
+   @Override
+   public void update(final VesselDataDTO vesselData) {
+      // do something with the vessel data
+   }
+}
+}}}
