@@ -1,18 +1,17 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.baderjene.aisparser</groupId>
 	<artifactId>aisparser</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>AIS Parser</name>
 	<organization>
 		<name>Bader&amp;Jene Software-Ingenieurbüro GmbH</name>
 		<url>http://www.bader-jene.de</url>
 	</organization>
 	<scm>
-		<url>http://code.google.com/p/ais-toolkit/source/browse/</url>
-		<connection>scm:svn:https://ais-toolkit.googlecode.com/svn/aisparser</connection>
-		<developerConnection>scm:svn:https://ais-toolkit.googlecode.com/svn/aisparser</developerConnection>
+		<url>http://code.google.com/p/ais-toolkit/source/browse/tags/aisparser-0.0.1</url>
+		<connection>scm:svn:https://ais-toolkit.googlecode.com/svn/aisparser/tags/aisparser-0.0.1</connection>
+		<developerConnection>scm:svn:https://ais-toolkit.googlecode.com/svn/aisparser/tags/aisparser-0.0.1</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
 	<issueManagement>
