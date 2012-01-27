@@ -1,0 +1,14 @@
+#summary This article describes the installation and usage of the AIS Webservice
+
+To use the AIS webservice out of the box you first have to install Tomcat and an PostgreSQL server. 
+
+Within PostgreSQL you have to set up a database with the following information:
+  * Database: aisdata
+  * Username: postgres
+  * Password: postgres
+
+After that you could deploy the war-File in you Tomcat's _webapps_ folder. The application would automatically set up the database and open a ServerSocket on port 8000 to receive AIS packets.
+
+After you received AIS data you could watch the visualized data on an OpenSeaMap under http://server:port/aisreceiver
+
+If there is no data available after some time, you can check if your server receives (valid) data in the _aisreceiver.log_ under your Tomcat's _logs_ directory.
