@@ -1,0 +1,13 @@
+#Installation and usage guide for the AIS Receiver
+
+== Installation ==
+Before you can use the AIS Receiver you have to install a [http://tomcat.apache.org/download-60.cgi Tomcat application server] (tested with version 6).
+
+After that just visit the [http://code.google.com/p/ais-toolkit/downloads/list download site], grab the latest _aisreceiver-_version_.war_, rename it to _aisreceiver.war_ and place it in your Tomcats _webapps_ directory.
+
+Without further configuration it uses an embedded Apache Derby database to store the received data. To use a PostgreSQL server you have to create a file called _aisreceiver.properties_ in yout Tomcats _conf_ directory. You can find a self-explaining example [http://code.google.com/p/ais-toolkit/source/browse/aisreceiver/trunk/aisreceiver.properties here].
+
+== Usage ==
+After you have started Tomcat the receiver opens TCP Port 8000 to retrieve AIS data. We have successfully tested the receiver with the AIS antenna [http://www.easyais.de/en/product_page.php?prodid=30 easyAIS-LAN A046] from Weatherdock.
+
+As soon as your receiver retrieves position data you are able to watch it on _YourServer_:8080/aisreceiver. We use OpenSeaMaps to display the received position report data.
