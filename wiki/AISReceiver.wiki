@@ -1,4 +1,4 @@
-#Installation and usage guide for the AIS Receiver
+#summary Installation and usage guide for the AIS Receiver
 
 == Installation ==
 Before you can use the AIS Receiver you have to install a [http://tomcat.apache.org/download-60.cgi Tomcat application server] (tested with version 6).
