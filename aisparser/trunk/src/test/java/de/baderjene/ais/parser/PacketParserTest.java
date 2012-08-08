@@ -48,7 +48,7 @@ public class PacketParserTest {
         Assert.assertEquals("!AIVDM", packet.getMessageType());
         Assert.assertEquals(1, packet.getTotalPackets());
         Assert.assertEquals(1, packet.getCurrentPacket());
-        Assert.assertEquals(0, packet.getSeqNum());
+        Assert.assertNull(packet.getSeqNum());
         Assert.assertEquals("A", packet.getChannel());
         Assert.assertEquals("13:<SD0018PfV>bO7INHNFfn04q0", packet.getData());
         Assert.assertEquals(0, packet.getPadBits());

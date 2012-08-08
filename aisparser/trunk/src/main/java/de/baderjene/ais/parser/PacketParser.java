@@ -1,6 +1,11 @@
 package de.baderjene.ais.parser;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Parses raw ais data packets.
@@ -9,6 +14,8 @@ import org.apache.commons.lang3.StringUtils;
  * 
  */
 class PacketParser {
+
+    private static final Logger LOG = LoggerFactory.getLogger(PacketParser.class);
 
     /**
      * Parse an ais packet.
@@ -19,54 +26,69 @@ class PacketParser {
      * @throws InvalidChecksumException when the checksum is invalid
      */
     public Packet parse(final String raw) throws InvalidPacketException, InvalidChecksumException {
-        final String[] token = raw.split("[,*]");
-        if (!isAisPacket(token)) {
+
+        LOG.debug("Processing input: {}", raw);
+
+        LOG.debug("Validating packet via RegEx");
+        final Matcher matcher = Pattern.compile("\\!([A-Z]{5},\\d,\\d,\\d*,.*?,\\d)\\*([0-9A-F]{2})").matcher(raw);
+        if (matcher.find()) {
+            LOG.debug("RegEx validation passed");
+        } else {
+            LOG.warn("RegEx validation failed {}", raw);
             throw new InvalidPacketException(raw);
         }
-        if (!isChecksumValid(raw)) {
+
+        LOG.debug("Validating checksum");
+        final int currentChecksum = calcChecksum(matcher.group(1));
+        final int expectedChecksum = Integer.parseInt(matcher.group(2), 16);
+        if (currentChecksum == expectedChecksum) {
+            LOG.debug("Checksum validation passed");
+        } else {
+            LOG.warn("Checksum validation failed {}", raw);
             throw new InvalidChecksumException(raw);
         }
 
+        LOG.debug("Parsing packet");
+        final String[] token = raw.split("[,*]");
+        final String messageType = token[0];
+        final int totalPackets = Integer.parseInt(token[1]);
+        final int currentPacket = Integer.parseInt(token[2]);
+        Integer seqNum = null;
+        if (StringUtils.isNotBlank(token[3])) {
+            seqNum = Integer.parseInt(token[3]);
+        }
+        final String channel = token[4];
+        final String data = token[5];
+        final int fillBits = Integer.parseInt(token[6]);
+
+        LOG.debug("Creating packet object from data");
         final Packet packet = new Packet();
         packet.setRaw(raw);
-        packet.setMessageType(token[0]);
-        packet.setTotalPackets(Integer.parseInt(token[1]));
-        packet.setCurrentPacket(Integer.parseInt(token[2]));
-        if (!token[3].isEmpty()) {
-            packet.setSeqNum(Integer.parseInt(token[3]));
-        }
-        packet.setChannel(token[4]);
-        packet.setData(token[5]);
-        packet.setPadBits(Integer.parseInt(token[6]));
-        packet.setChecksum(Integer.parseInt(token[7], 16));
+        packet.setMessageType(messageType);
+        packet.setTotalPackets(totalPackets);
+        packet.setCurrentPacket(currentPacket);
+        packet.setSeqNum(seqNum);
+        packet.setChannel(channel);
+        packet.setData(data);
+        packet.setPadBits(fillBits);
+        packet.setChecksum(currentChecksum);
         packet.setBinary(generateBinaryData(token[5]));
+        LOG.debug("Packet object created");
         return packet;
     }
 
     /**
-     * Checks whether the data is a valid ais packet.
+     * Calculates the checksum of the packet.
      * 
-     * @param token the splitted packet
-     * @return whether the packet is a valid ais packet
+     * @param data The data for creating the checksum
+     * @return Checksum of the data
      */
-    private boolean isAisPacket(final String[] token) {
-        return token.length == 8 && "!AIVDM".equals(token[0]);
-    }
-
-    /**
-     * Control the checksum of the ais packet.
-     * 
-     * @param raw the raw packet
-     * @return whether the cecksum is valid
-     */
-    private boolean isChecksumValid(final String raw) {
-        final String checkString = raw.substring(1, raw.indexOf("*"));
-        final int validChecksum = Integer.parseInt(raw.substring(raw.indexOf('*') + 1), 16);
+    private int calcChecksum(final String data) {
         int checksum = 0;
-        for (final char c : checkString.toCharArray()) {
+        for (final char c : data.toCharArray()) {
             checksum ^= c;
         }
-        return validChecksum == checksum;
+        return checksum;
     }
 
     /**

@@ -526,4 +526,51 @@ public class VesselDataDTO {
         this.terminalReady = terminalReady;
     }
 
+    @Override
+    public String toString() {
+        final StringBuilder builder = new StringBuilder();
+        builder.append("VesselDataDTO [aisMessageType=");
+        builder.append(aisMessageType);
+        builder.append(", repeatIndicator=");
+        builder.append(repeatIndicator);
+        builder.append(", mmsi=");
+        builder.append(mmsi);
+        builder.append(", aisVersion=");
+        builder.append(aisVersion);
+        builder.append(", imoNumber=");
+        builder.append(imoNumber);
+        builder.append(", callSign=");
+        builder.append(callSign);
+        builder.append(", vesselName=");
+        builder.append(vesselName);
+        builder.append(", shipType=");
+        builder.append(shipType);
+        builder.append(", dimensionToBow=");
+        builder.append(dimensionToBow);
+        builder.append(", dimensionToStern=");
+        builder.append(dimensionToStern);
+        builder.append(", dimensionToPort=");
+        builder.append(dimensionToPort);
+        builder.append(", dimensionToStarboard=");
+        builder.append(dimensionToStarboard);
+        builder.append(", positionFixType=");
+        builder.append(positionFixType);
+        builder.append(", etaMonth=");
+        builder.append(etaMonth);
+        builder.append(", etaDay=");
+        builder.append(etaDay);
+        builder.append(", etaHour=");
+        builder.append(etaHour);
+        builder.append(", etaMinute=");
+        builder.append(etaMinute);
+        builder.append(", draught=");
+        builder.append(draught);
+        builder.append(", destination=");
+        builder.append(destination);
+        builder.append(", terminalReady=");
+        builder.append(terminalReady);
+        builder.append("]");
+        return builder.toString();
+    }
+
 }

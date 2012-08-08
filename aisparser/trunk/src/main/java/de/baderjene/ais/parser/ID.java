@@ -1,5 +1,8 @@
 package de.baderjene.ais.parser;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
 /**
  * This class is used for keys of partial messages in a HashSet.
  * 
@@ -29,11 +32,22 @@ class ID {
 
     @Override
     public boolean equals(final Object obj) {
-        return obj != null && obj instanceof ID && getChannel().equals(((ID) obj).getChannel()) && getSeqNum() == ((ID) obj).getSeqNum();
+        boolean equals = false;
+        if (obj != null && obj instanceof ID) {
+            final ID id = (ID) obj;
+            final EqualsBuilder builder = new EqualsBuilder();
+            builder.append(channel, id.channel);
+            builder.append(seqNum, id.seqNum);
+            equals = builder.build();
+        }
+        return equals;
     }
 
     @Override
     public int hashCode() {
-        return getSeqNum();
+        final HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(channel);
+        builder.append(seqNum);
+        return builder.build();
     }
 }

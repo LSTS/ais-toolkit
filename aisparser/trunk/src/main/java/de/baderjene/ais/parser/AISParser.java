@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 /**
  * The processor is the central place to send your ais messages. It's implemented as an observer which sends notifications when complete
  * messages were parsed. Use one processor per data source, otherwise the messages could get corrupted.
@@ -14,8 +15,8 @@ import java.util.Map;
  */
 public class AISParser {
 
-    private final Map<ID, MessageAssembler> incompleteMessages = new HashMap<ID, MessageAssembler>();
-    private final List<AISObserver> observers = new ArrayList<AISObserver>();
+    private final Map<ID, MessageAssembler> incompleteMessages = new HashMap<>();
+    private final List<AISObserver> observers = new ArrayList<>();
 
     /**
      * Parses a raw ais packet.

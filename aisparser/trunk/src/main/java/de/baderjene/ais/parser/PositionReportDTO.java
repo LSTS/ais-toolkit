@@ -353,4 +353,41 @@ public class PositionReportDTO {
         this.radioStatus = radioStatus;
     }
 
+    @Override
+    public String toString() {
+        final StringBuilder builder = new StringBuilder();
+        builder.append("PositionReportDTO [aisMessageType=");
+        builder.append(aisMessageType);
+        builder.append(", repeatIndicator=");
+        builder.append(repeatIndicator);
+        builder.append(", mmsi=");
+        builder.append(mmsi);
+        builder.append(", navigationStatus=");
+        builder.append(navigationStatus);
+        builder.append(", rateOfTurn=");
+        builder.append(rateOfTurn);
+        builder.append(", speedOverGround=");
+        builder.append(speedOverGround);
+        builder.append(", positionAccurate=");
+        builder.append(positionAccurate);
+        builder.append(", longitude=");
+        builder.append(longitude);
+        builder.append(", latitude=");
+        builder.append(latitude);
+        builder.append(", courseOverGround=");
+        builder.append(courseOverGround);
+        builder.append(", trueHeading=");
+        builder.append(trueHeading);
+        builder.append(", timestamp=");
+        builder.append(timestamp);
+        builder.append(", maneuverIndicator=");
+        builder.append(maneuverIndicator);
+        builder.append(", raimUsed=");
+        builder.append(raimUsed);
+        builder.append(", radioStatus=");
+        builder.append(radioStatus);
+        builder.append("]");
+        return builder.toString();
+    }
+
 }

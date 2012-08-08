@@ -1,5 +1,8 @@
 package de.baderjene.ais.parser;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
 /**
  * This class is used to hold the basic information of an ais packet.
  * 
@@ -12,7 +15,7 @@ class Packet implements Comparable<Packet> {
     private String messageType;
     private int totalPackets;
     private int currentPacket;
-    private int seqNum;
+    private Integer seqNum;
     private String channel;
     private String data;
     private int padBits;
@@ -51,11 +54,11 @@ class Packet implements Comparable<Packet> {
         this.currentPacket = currentPacket;
     }
 
-    public int getSeqNum() {
+    public Integer getSeqNum() {
         return seqNum;
     }
 
-    public void setSeqNum(final int seqNum) {
+    public void setSeqNum(final Integer seqNum) {
         this.seqNum = seqNum;
     }
 
@@ -106,12 +109,21 @@ class Packet implements Comparable<Packet> {
 
     @Override
     public boolean equals(final Object obj) {
-        return obj != null && obj instanceof Packet && getRaw().equals(((Packet) obj).getRaw());
+        boolean equals = false;
+        if (obj != null && obj instanceof Packet) {
+            final Packet packet = (Packet) obj;
+            final EqualsBuilder builder = new EqualsBuilder();
+            builder.append(raw, packet.raw);
+            equals = builder.build();
+        }
+        return equals;
     }
 
     @Override
     public int hashCode() {
-        return getRaw().hashCode();
+        final HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(hashCode());
+        return builder.build();
     }
 
 }

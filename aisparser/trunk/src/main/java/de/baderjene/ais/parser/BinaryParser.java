@@ -30,7 +30,10 @@ class BinaryParser {
      * @param end the ending index
      * @return the extracted string
      */
-    private String extract(final int begin, final int end) {
+    private String extract(final int begin, int end) {
+        if (end > binary.length()) {
+            end = binary.length() - 1;
+        }
         return binary.substring(begin, end + 1);
     }
 
@@ -81,17 +84,21 @@ class BinaryParser {
      * @return the parsed text
      */
     public String parseText(final int begin, final int end) {
-        final StringBuilder ascii = new StringBuilder();
-        final int count = (end + 1 - begin) / 6;
-        for (int i = 0; i < count; i++) {
-            final int current = parseInteger(begin + i * 6, begin + i * 6 + 5);
-            ascii.append(asciiMapping[current]);
+        try {
+            final StringBuilder ascii = new StringBuilder();
+            final int count = (end + 1 - begin) / 6;
+            for (int i = 0; i < count; i++) {
+                final int current = parseInteger(begin + i * 6, begin + i * 6 + 5);
+                ascii.append(asciiMapping[current]);
+            }
+            while (ascii.charAt(ascii.length() - 1) == '@') {
+                ascii.deleteCharAt(ascii.length() - 1);
+            }
+            // some conversions did not deliver the right result
+            // should be checked
+            return ascii.toString().replace(" \\", "Z");
+        } catch (final IndexOutOfBoundsException e) {
+            return "";
         }
-        while (ascii.charAt(ascii.length() - 1) == '@') {
-            ascii.deleteCharAt(ascii.length() - 1);
-        }
-        // some conversions did not deliver the right result
-        // should be checked
-        return ascii.toString().replace(" \\", "Z");
     }
 }

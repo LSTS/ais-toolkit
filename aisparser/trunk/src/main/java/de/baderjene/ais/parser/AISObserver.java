@@ -1,5 +1,6 @@
 package de.baderjene.ais.parser;
 
+
 /**
  * This is the interface for ais observers.
  * 
