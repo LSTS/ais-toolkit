@@ -67,7 +67,7 @@ class BinaryParser {
      * @return the parsed signed integer
      */
     public int parseSignedInteger(final int begin, final int end) {
-        final boolean minus = binary.charAt(0) == '1';
+        final boolean minus = binary.charAt(begin) == '1';
         final String value = extract(begin, end);
         if (minus) {
             return (int) -(Math.pow(2, value.length()) - Math.abs(Integer.parseInt(value, 2)));
