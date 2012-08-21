@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>de.baderjene.aisparser</groupId>
+  <artifactId>aisparser</artifactId>
+  <versioning>
+    <versions>
+      <version>1.0.1-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20120821193850</lastUpdated>
+  </versioning>
+</metadata>
