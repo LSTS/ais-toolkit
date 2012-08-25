@@ -29,8 +29,14 @@ class PacketParser {
 
         LOG.debug("Processing input: {}", raw);
 
+        LOG.debug("Validating fragments length");
+        if (raw.length() > 80) {
+            LOG.warn("Fragment size exceeded {}", raw);
+            throw new InvalidPacketException(raw);
+        }
+
         LOG.debug("Validating packet via RegEx");
-        final Matcher matcher = Pattern.compile("\\!([A-Z]{5},\\d,\\d,\\d*,.*?,\\d)\\*([0-9A-F]{2})").matcher(raw);
+        final Matcher matcher = Pattern.compile("\\!([A-Z]{5},\\d,\\d,\\d?,.{1,51},\\d)\\*([0-9A-F]{2})").matcher(raw);
         if (matcher.find()) {
             LOG.debug("RegEx validation passed");
         } else {
