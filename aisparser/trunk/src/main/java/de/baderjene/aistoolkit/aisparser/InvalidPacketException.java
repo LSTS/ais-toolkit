@@ -1,4 +1,4 @@
-package de.baderjene.ais.parser;
+package de.baderjene.aistoolkit.aisparser;
 
 /**
  * Throw this exception when an invalid packet should be parsed.

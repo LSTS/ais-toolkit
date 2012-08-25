@@ -1,9 +1,16 @@
-package de.baderjene.ais.parser;
+package de.baderjene.aistoolkit.aisparser;
 
 import junit.framework.Assert;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import de.baderjene.aistoolkit.aisparser.AISObserver;
+import de.baderjene.aistoolkit.aisparser.AISParser;
+import de.baderjene.aistoolkit.aisparser.InvalidChecksumException;
+import de.baderjene.aistoolkit.aisparser.InvalidPacketException;
+import de.baderjene.aistoolkit.aisparser.PositionReportDTO;
+import de.baderjene.aistoolkit.aisparser.VesselDataDTO;
 
 
 /**

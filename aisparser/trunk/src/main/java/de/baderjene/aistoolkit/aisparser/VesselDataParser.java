@@ -1,4 +1,4 @@
-package de.baderjene.ais.parser;
+package de.baderjene.aistoolkit.aisparser;
 
 /**
  * Parses vessel data information of ais message type 5.<br />

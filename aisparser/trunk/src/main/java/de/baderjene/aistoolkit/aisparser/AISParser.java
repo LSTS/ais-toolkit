@@ -1,4 +1,4 @@
-package de.baderjene.ais.parser;
+package de.baderjene.aistoolkit.aisparser;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,8 +15,8 @@ import java.util.Map;
  */
 public class AISParser {
 
-    private final Map<ID, MessageAssembler> incompleteMessages = new HashMap<>();
-    private final List<AISObserver> observers = new ArrayList<>();
+    private final Map<ID, MessageAssembler> incompleteMessages = new HashMap<ID, MessageAssembler>();
+    private final List<AISObserver> observers = new ArrayList<AISObserver>();
 
     /**
      * Parses a raw ais packet.

@@ -1,7 +1,9 @@
-package de.baderjene.ais.parser;
+package de.baderjene.aistoolkit.aisparser;
 
 import org.junit.Assert;
 import org.junit.Test;
+
+import de.baderjene.aistoolkit.aisparser.ID;
 
 /**
  * Test class for the ID class.

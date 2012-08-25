@@ -1,4 +1,4 @@
-package de.baderjene.ais.parser;
+package de.baderjene.aistoolkit.aisparser;
 
 /**
  * Throw this exception when the checksum of an ais packet is invalid.

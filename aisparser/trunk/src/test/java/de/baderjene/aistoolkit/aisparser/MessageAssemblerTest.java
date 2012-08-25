@@ -1,9 +1,15 @@
-package de.baderjene.ais.parser;
+package de.baderjene.aistoolkit.aisparser;
 
 import junit.framework.Assert;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import de.baderjene.aistoolkit.aisparser.InvalidChecksumException;
+import de.baderjene.aistoolkit.aisparser.InvalidPacketException;
+import de.baderjene.aistoolkit.aisparser.MessageAssembler;
+import de.baderjene.aistoolkit.aisparser.Packet;
+import de.baderjene.aistoolkit.aisparser.PacketParser;
 
 
 /**

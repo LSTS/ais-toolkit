@@ -1,4 +1,4 @@
-package de.baderjene.ais.parser;
+package de.baderjene.aistoolkit.aisparser;
 
 /**
  * This class is used to parse the binary data string of the AIS message.

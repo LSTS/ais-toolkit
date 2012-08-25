@@ -1,4 +1,4 @@
-package de.baderjene.ais.parser;
+package de.baderjene.aistoolkit.aisparser;
 
 /**
  * Parse position report data from ais messages of types 1, 2 and 3.<br />

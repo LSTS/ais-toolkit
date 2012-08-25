@@ -1,18 +1,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.baderjene.aistoolkit</groupId>
 	<artifactId>aisparser</artifactId>
 	<version>1.0.1-SNAPSHOT</version>
 
-	<name>AIS Parser</name>
-
 	<organization>
 		<name>Bader&amp;Jene Software-Ingenieurbüro GmbH</name>
 		<url>http://www.bader-jene.de</url>
 	</organization>
+	
 	<scm>
-
 		<url>http://code.google.com/p/ais-toolkit/source/browse/</url>
 		<connection>scm:svn:https://ais-toolkit.googlecode.com/svn/aisparser</connection>
 		<developerConnection>scm:svn:https://ais-toolkit.googlecode.com/svn/aisparser</developerConnection>
@@ -47,8 +46,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.5.1</version>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>1.6</source>
+					<target>1.6</target>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -63,16 +62,16 @@
 					</dependency>
 				</dependencies>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-site-plugin</artifactId>
-				<version>3.1</version>
-			</plugin>
 		</plugins>
 	</build>
 
 	<reporting>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.1</version>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-checkstyle-plugin</artifactId>
@@ -122,7 +121,7 @@
 				<artifactId>maven-pmd-plugin</artifactId>
 				<version>2.7.1</version>
 				<configuration>
-					<targetJdk>1.7</targetJdk>
+					<targetJdk>1.6</targetJdk>
 				</configuration>
 			</plugin>
 			<plugin>

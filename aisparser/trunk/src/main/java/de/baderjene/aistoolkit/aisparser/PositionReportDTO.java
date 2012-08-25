@@ -1,4 +1,4 @@
-package de.baderjene.ais.parser;
+package de.baderjene.aistoolkit.aisparser;
 
 /**
  * This class holds the information of an ais message of type 1, 2 or 3.<br />

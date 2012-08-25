@@ -1,4 +1,4 @@
-package de.baderjene.ais.parser;
+package de.baderjene.aistoolkit.aisparser;
 
 /**
  * This class holds information about a vessel. This is the information of ais message type 5.<br />

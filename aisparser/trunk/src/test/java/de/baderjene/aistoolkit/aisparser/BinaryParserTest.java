@@ -1,8 +1,10 @@
-package de.baderjene.ais.parser;
+package de.baderjene.aistoolkit.aisparser;
 
 import junit.framework.Assert;
 
 import org.junit.Test;
+
+import de.baderjene.aistoolkit.aisparser.BinaryParser;
 
 /**
  * Test class for the binary parser.

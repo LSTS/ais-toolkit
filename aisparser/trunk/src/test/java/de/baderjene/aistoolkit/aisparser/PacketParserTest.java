@@ -1,7 +1,12 @@
-package de.baderjene.ais.parser;
+package de.baderjene.aistoolkit.aisparser;
 
 import org.junit.Assert;
 import org.junit.Test;
+
+import de.baderjene.aistoolkit.aisparser.InvalidChecksumException;
+import de.baderjene.aistoolkit.aisparser.InvalidPacketException;
+import de.baderjene.aistoolkit.aisparser.Packet;
+import de.baderjene.aistoolkit.aisparser.PacketParser;
 
 /**
  * Test class for the packet parser.

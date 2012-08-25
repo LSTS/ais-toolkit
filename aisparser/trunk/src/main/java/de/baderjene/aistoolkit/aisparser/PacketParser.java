@@ -1,4 +1,4 @@
-package de.baderjene.ais.parser;
+package de.baderjene.aistoolkit.aisparser;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
