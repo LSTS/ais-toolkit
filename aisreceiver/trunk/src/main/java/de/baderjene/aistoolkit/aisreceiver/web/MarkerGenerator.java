@@ -1,4 +1,4 @@
-package de.baderjene.ais.receiver.web;
+package de.baderjene.aistoolkit.aisreceiver.web;
 
 import java.io.IOException;
 
@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.HttpRequestHandler;
 
-import de.baderjene.ais.receiver.persistence.Persistence;
-import de.baderjene.ais.receiver.persistence.PositionReport;
+import de.baderjene.aistoolkit.aisreceiver.persistence.Persistence;
+import de.baderjene.aistoolkit.aisreceiver.persistence.PositionReport;
 
 public class MarkerGenerator implements HttpRequestHandler {
 

@@ -4,7 +4,6 @@
 	xmlns:context="http://www.springframework.org/schema/context"	
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:task="http://www.springframework.org/schema/task"
-	xmlns:jaxws="http://cxf.apache.org/jaxws" 
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 		http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
 		http://www.springframework.org/schema/context 
@@ -12,16 +11,11 @@
 		http://www.springframework.org/schema/tx 
 		http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
 		http://www.springframework.org/schema/task
-		http://www.springframework.org/schema/task/spring-task-3.1.xsd
-		http://cxf.apache.org/jaxws 
-		http://cxf.apache.org/schemas/jaxws.xsd">
+		http://www.springframework.org/schema/task/spring-task-3.1.xsd">
 		
-	<!-- Imports -->
-	<import resource="classpath:META-INF/cxf/cxf.xml" />
-	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
-	
 	<!-- Autowiring -->
 	<context:annotation-config />
+	<context:component-scan base-package="de.baderjene.aistoolkit.aisreceiver" />
 
 	<!-- Properties -->
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" />
@@ -49,20 +43,14 @@
 	<!-- Hibernate -->
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean" depends-on="liquibase">
 		<property name="dataSource" ref="dataSource" />
-		<property name="annotatedClasses">
-			<list>
-				<value>de.baderjene.ais.receiver.persistence.MMSI</value>
-				<value>de.baderjene.ais.receiver.persistence.PositionReport</value>
-				<value>de.baderjene.ais.receiver.persistence.VesselData</value>
-			</list>
-		</property>
+		<property name="packagesToScan" value="de.baderjene.aistoolkit.aisreceiver.persistence" />
 	</bean>
 
 	<!-- Transaction Manager -->
-	<tx:annotation-driven transaction-manager="txManager" />
 	<bean id="txManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
+	<tx:annotation-driven transaction-manager="txManager" />
 
 	<!-- Database Cleanup -->
 	<task:scheduled-tasks>
@@ -70,13 +58,6 @@
 	</task:scheduled-tasks>
 
 	<!-- Beans -->
-	<bean id="persistence" class="de.baderjene.ais.receiver.persistence.Persistence" />
-	<bean id="contentGenerator" class="de.baderjene.ais.receiver.web.MarkerGenerator" />
-	<bean id="receiver" class="de.baderjene.ais.receiver.Receiver" />
-
-	<!-- Webservices -->
-	<bean id="aisService" class="de.baderjene.ais.receiver.soap.SOAPService" />
-	<jaxws:endpoint implementor="#aisService" address="/ais" />
-
+	<bean id="contentGenerator" class="de.baderjene.aistoolkit.aisreceiver.web.MarkerGenerator" />
 
 </beans>

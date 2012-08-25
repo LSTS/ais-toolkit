@@ -1,4 +1,4 @@
-package de.baderjene.ais.receiver.persistence;
+package de.baderjene.aistoolkit.aisreceiver.persistence;
 
 import java.util.Date;
 

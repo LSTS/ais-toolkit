@@ -1,4 +1,4 @@
-package de.baderjene.ais.receiver.persistence;
+package de.baderjene.aistoolkit.aisreceiver.persistence;
 
 import java.util.Date;
 import java.util.List;
@@ -10,11 +10,12 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import de.baderjene.ais.parser.PositionReportDTO;
-import de.baderjene.ais.parser.VesselDataDTO;
+import de.baderjene.aistoolkit.aisparser.PositionReportDTO;
+import de.baderjene.aistoolkit.aisparser.VesselDataDTO;
 
 /**
  * The persistence class is used to store AIS messages to the database and to read from the database.
@@ -22,6 +23,7 @@ import de.baderjene.ais.parser.VesselDataDTO;
  * @author Patrick Gotthard
  * 
  */
+@Component
 @Transactional(propagation = Propagation.REQUIRED)
 public class Persistence {
 
@@ -111,51 +113,6 @@ public class Persistence {
         final String hql = "from PositionReport report where creationDate > :period and creationDate = (select max(creationDate) from PositionReport where mmsi = report.mmsi)";
         final Query query = session.createQuery(hql);
         query.setTimestamp("period", DateUtils.addMinutes(new Date(), -5));
-        return query.list();
-    }
-
-    /**
-     * Get position reports by IMO number.
-     * 
-     * @param imoNumber the IMO number
-     * @return the position report
-     */
-    @SuppressWarnings("unchecked")
-    public List<PositionReport> getShipStatusByImo(final int imoNumber) {
-        final Session session = factory.getCurrentSession();
-        final String hql = "select report from PositionReport as report, VesselData as data where data.imoNumber = :imoNumber and data.mmsi = report.mmsi and report.id = (select max(id) from PositionReport where mmsi = report.mmsi)";
-        final Query query = session.createQuery(hql);
-        query.setInteger("imoNumber", imoNumber);
-        return query.list();
-    }
-
-    /**
-     * Get position reports by callsign.
-     * 
-     * @param callSign the callsign
-     * @return the position report
-     */
-    @SuppressWarnings("unchecked")
-    public List<PositionReport> getShipStatusByCallSign(final String callSign) {
-        final Session session = factory.getCurrentSession();
-        final String hql = "select report final from PositionReport final as report, VesselData as final data where data.callSign = :callSign and data.mmsi = report.mmsi and report.id = select max(id) from PositionReport where mmsi = report.mmsi)";
-        final Query query = session.createQuery(hql);
-        query.setString("callSign", callSign);
-        return query.list();
-    }
-
-    /**
-     * Get a position report by vesselname.
-     * 
-     * @param vesselName the vesselname
-     * @return the position report
-     */
-    @SuppressWarnings("unchecked")
-    public List<PositionReport> getShipStatusByVesselName(final String vesselName) {
-        final Session session = factory.getCurrentSession();
-        final String hql = "select report from PositionReport as report, VesselData as data where data.vesselName = :vesselName and data.mmsi = report.mmsi and report.id = (select max(id) from PositionReport where mmsi = report.mmsi)";
-        final Query query = session.createQuery(hql);
-        query.setString("vesselName", vesselName);
         return query.list();
     }
 

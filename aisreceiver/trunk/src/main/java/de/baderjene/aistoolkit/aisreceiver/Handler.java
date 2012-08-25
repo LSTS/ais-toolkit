@@ -1,4 +1,4 @@
-package de.baderjene.ais.receiver;
+package de.baderjene.aistoolkit.aisreceiver;
 
 import java.io.IOException;
 import java.net.Socket;
@@ -6,9 +6,9 @@ import java.util.Scanner;
 
 import org.apache.log4j.Logger;
 
-import de.baderjene.ais.parser.AISParser;
-import de.baderjene.ais.parser.InvalidChecksumException;
-import de.baderjene.ais.parser.InvalidPacketException;
+import de.baderjene.aistoolkit.aisparser.AISParser;
+import de.baderjene.aistoolkit.aisparser.InvalidChecksumException;
+import de.baderjene.aistoolkit.aisparser.InvalidPacketException;
 
 /**
  * This class is used to handle ais antenna connections.

@@ -1,16 +1,17 @@
-package de.baderjene.ais.receiver;
+package de.baderjene.aistoolkit.aisreceiver;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import de.baderjene.ais.parser.AISObserver;
-import de.baderjene.ais.parser.AISParser;
-import de.baderjene.ais.parser.PositionReportDTO;
-import de.baderjene.ais.parser.VesselDataDTO;
-import de.baderjene.ais.receiver.persistence.Persistence;
+import de.baderjene.aistoolkit.aisparser.AISObserver;
+import de.baderjene.aistoolkit.aisparser.AISParser;
+import de.baderjene.aistoolkit.aisparser.PositionReportDTO;
+import de.baderjene.aistoolkit.aisparser.VesselDataDTO;
+import de.baderjene.aistoolkit.aisreceiver.persistence.Persistence;
 
 /**
  * Receiver for ais messages.
@@ -18,6 +19,7 @@ import de.baderjene.ais.receiver.persistence.Persistence;
  * @author Patrick Gotthard
  * 
  */
+@Component
 public final class Receiver implements AISObserver, Runnable {
 
     private static final Logger LOG = Logger.getLogger(Receiver.class);
