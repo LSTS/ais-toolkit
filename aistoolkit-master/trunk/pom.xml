@@ -26,11 +26,11 @@
 
     <distributionManagement>
         <repository>
-            <id>ais-toolkit</id>
+            <id>ais-toolkit-releases</id>
             <url>svn:https://ais-toolkit.googlecode.com/svn/maven/releases</url>
         </repository>
         <snapshotRepository>
-            <id>ais-toolkit</id>
+            <id>ais-toolkit-snapshots</id>
             <url>svn:https://ais-toolkit.googlecode.com/svn/maven/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
