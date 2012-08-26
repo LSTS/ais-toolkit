@@ -12,7 +12,7 @@
 	</organization>
 
 	<scm>
-		<url>http://code.google.com/p/ais-toolkit/source/browse/</url>
+		<url>http://ais-toolkit.googlecode.com/svn/aistoolkit-master</url>
 		<connection>scm:svn:https://ais-toolkit.googlecode.com/svn/aistoolkit-master</connection>
 		<developerConnection>scm:svn:https://ais-toolkit.googlecode.com/svn/aistoolkit-master</developerConnection>
 	</scm>
