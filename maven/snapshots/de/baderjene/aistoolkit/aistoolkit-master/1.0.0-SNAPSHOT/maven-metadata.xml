@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>de.baderjene.aistoolkit</groupId>
+  <artifactId>aistoolkit-master</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20120826.110046</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <lastUpdated>20120826110046</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>1.0.0-20120826.110046-1</value>
+        <updated>20120826110046</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>

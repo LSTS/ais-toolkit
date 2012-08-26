@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>de.baderjene.aistoolkit</groupId>
+  <artifactId>aistoolkit-master</artifactId>
+  <versioning>
+    <versions>
+      <version>1.0.0-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20120826110102</lastUpdated>
+  </versioning>
+</metadata>
