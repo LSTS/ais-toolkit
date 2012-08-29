@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>de.baderjene.aistoolkit</groupId>
+  <artifactId>aisreceiver</artifactId>
+  <version>1.0.1-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20120829.203009</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <lastUpdated>20120829203009</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>war</extension>
+        <value>1.0.1-20120829.203009-1</value>
+        <updated>20120829203009</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>1.0.1-20120829.203009-1</value>
+        <updated>20120829203009</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>
