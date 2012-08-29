@@ -4,21 +4,16 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.Scanner;
 
-import org.apache.log4j.Logger;
-
 import de.baderjene.aistoolkit.aisparser.AISParser;
-import de.baderjene.aistoolkit.aisparser.InvalidChecksumException;
-import de.baderjene.aistoolkit.aisparser.InvalidPacketException;
 
 /**
- * This class is used to handle ais antenna connections.
+ * This class is used to handle AIS antenna connections.
  * 
- * @author Patrick Gotthard
+ * @author Patrick Gotthard <patrick.gotthard@bader-jene.de>
  * 
  */
 public final class Handler implements Runnable {
 
-    private static final Logger LOG = Logger.getLogger(Handler.class);
     private final AISParser parser;
     private final Scanner scanner;
 
@@ -37,16 +32,7 @@ public final class Handler implements Runnable {
     @Override
     public void run() {
         while (scanner.hasNext()) {
-            String packet = null;
-            try {
-                packet = scanner.nextLine();
-                LOG.debug("Received ais packet: " + packet);
-                parser.process(packet);
-            } catch (final InvalidChecksumException e) {
-                LOG.error("Wrong checksum: " + packet);
-            } catch (final InvalidPacketException e) {
-                LOG.error("Invalid packet: " + packet);
-            }
+            parser.process(scanner.nextLine());
         }
     }
 }

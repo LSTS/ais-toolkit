@@ -13,6 +13,12 @@ import org.springframework.web.HttpRequestHandler;
 import de.baderjene.aistoolkit.aisreceiver.persistence.Persistence;
 import de.baderjene.aistoolkit.aisreceiver.persistence.PositionReport;
 
+/**
+ * This servlet creates the JavaScript for showing markers on the OpenSeaMap.
+ * 
+ * @author Patrick Gotthard <patrick.gotthard@bader-jene.de>
+ * 
+ */
 public class MarkerGenerator implements HttpRequestHandler {
 
     @Autowired
@@ -20,22 +26,26 @@ public class MarkerGenerator implements HttpRequestHandler {
 
     @Override
     public void handleRequest(final HttpServletRequest request, final HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/plain; charset=UTF-8");
-        final ServletOutputStream out = response.getOutputStream();
-        out.println("function showMap() {");
-        out.println("   initMap();");
+
+        final StringBuilder builder = new StringBuilder();
+        builder.append(" function showMap() { ");
+        builder.append(" initMap(); ");
         for (final PositionReport report : persistence.getLatestPositionData()) {
             final double longitude = report.getLongitude();
             final double latitude = report.getLatitude();
             final int trueHeading = report.getTrueHeading();
-            if (report.getMmsi().getVesselData() == null) {
-                out.println("   addMarker(" + longitude + ", " + latitude + ", " + trueHeading + ", \"UNKNOWN\");");
-            } else {
-                final String vesselName = report.getMmsi().getVesselData().getVesselName();
-                out.println("   addMarker(" + longitude + ", " + latitude + ", " + trueHeading + ", \"" + vesselName + "\");");
+            String vesselName = "UNKNOWN";
+            if (report.getMmsi().getVesselData() != null) {
+                vesselName = report.getMmsi().getVesselData().getVesselName();
             }
+            builder.append(" addMarker(" + longitude + ", " + latitude + ", " + trueHeading + ", \"" + vesselName + "\"); ");
+
         }
-        out.println("}");
+        builder.append(" } ");
+
+        response.setContentType("text/plain; charset=UTF-8");
+        final ServletOutputStream out = response.getOutputStream();
+        out.println(builder.toString());
         out.flush();
         out.close();
     }

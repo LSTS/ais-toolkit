@@ -11,6 +11,5 @@
 		<script type="text/javascript" src="shipmap.js"></script>
 		<script type="text/javascript" src="ajax"></script>
 	</head>
-	<body onload="showMap();" style="margin:0;padding:0;" id="map">
-	</body>
+	<body onload="showMap();" style="margin:0;padding:0;" id="map"></body>
 </html>

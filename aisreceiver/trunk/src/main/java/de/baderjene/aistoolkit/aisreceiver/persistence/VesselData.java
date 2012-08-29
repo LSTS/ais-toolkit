@@ -12,7 +12,7 @@ import javax.persistence.Table;
 /**
  * Stores information about vessels.
  * 
- * @author Patrick Gotthard
+ * @author Patrick Gotthard <patrick.gotthard@bader-jene.de>
  * 
  */
 @Entity

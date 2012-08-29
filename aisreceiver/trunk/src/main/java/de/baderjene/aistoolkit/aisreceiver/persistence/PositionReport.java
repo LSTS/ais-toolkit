@@ -14,7 +14,7 @@ import javax.persistence.Table;
 /**
  * This class holds the information of a position report.
  * 
- * @author Patrick Gotthard
+ * @author Patrick Gotthard <patrick.gotthard@bader-jene.de>
  * 
  */
 @Entity

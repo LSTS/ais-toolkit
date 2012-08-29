@@ -12,9 +12,9 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
- * The MMSI is the identifier of an ais sender and occurs in every ais message.
+ * The MMSI is the identifier of an AIS sender and occurs in every AIS message.
  * 
- * @author Patrick Gotthard
+ * @author Patrick Gotthard <patrick.gotthard@bader-jene.de>
  * 
  */
 @Entity

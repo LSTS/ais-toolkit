@@ -7,10 +7,10 @@
 	<changeSet id="1" author="patrick.gotthard">
 		<createTable tableName="mmsi">
 			<column name="id" type="int" autoIncrement="true">
-				<constraints nullable="false" primaryKey="true" />
+				<constraints nullable="false" primaryKey="true" uniqueConstraintName="id_constraint" />
 			</column>
 			<column name="number" type="int">
-				<constraints nullable="false" unique="true" />
+				<constraints nullable="false" unique="true" uniqueConstraintName="number_constraint" />
 			</column>
 		</createTable>
 	</changeSet>
@@ -19,61 +19,61 @@
 	<changeSet id="2" author="patrick.gotthard">
 		<createTable tableName="vessel_data">
 			<column name="id" type="int" autoIncrement="true">
-				<constraints nullable="false" primaryKey="true" />
+				<constraints nullable="false" primaryKey="true" uniqueConstraintName="id_constraint" />
 			</column>
 			<column name="mmsi_id" type="int">
-				<constraints nullable="false" unique="true" />
+				<constraints nullable="false" unique="true" uniqueConstraintName="mmsi_id_constraint" />
 			</column>
 			<column name="ais_version" type="int">
-				<constraints nullable="false" />
+				<constraints nullable="false" uniqueConstraintName="ais_version_constraint" />
 			</column>
 			<column name="imo" type="int">
-				<constraints nullable="false" unique="true" />
+				<constraints nullable="false" unique="true" uniqueConstraintName="imo_constraint" />
 			</column>
 			<column name="callsign" type="varchar(255)">
-				<constraints nullable="false" />
+				<constraints nullable="false" uniqueConstraintName="callsign_constraint" />
 			</column>
 			<column name="vesselname" type="varchar(255)">
-				<constraints nullable="false" />
+				<constraints nullable="false" uniqueConstraintName="vesselname_constraint" />
 			</column>
 			<column name="shiptype" type="int">
-				<constraints nullable="false" />
+				<constraints nullable="false" uniqueConstraintName="shiptype_constraint"/>
 			</column>
 			<column name="dimension_to_bow" type="int">
-				<constraints nullable="false" />
+				<constraints nullable="false" uniqueConstraintName="dimension_to_bow_constraint" />
 			</column>
 			<column name="dimension_to_stern" type="int">
-				<constraints nullable="false" />
+				<constraints nullable="false" uniqueConstraintName="dimension_to_stern_constraint" />
 			</column>
 			<column name="dimension_to_port" type="int">
-				<constraints nullable="false" />
+				<constraints nullable="false" uniqueConstraintName="dimension_to_port_constraint" />
 			</column>
 			<column name="dimension_to_starboard" type="int">
-				<constraints nullable="false" />
+				<constraints nullable="false" uniqueConstraintName="dimension_to_starboard_constraint" />
 			</column>
 			<column name="position_fix_type" type="int">
-				<constraints nullable="false" />
+				<constraints nullable="false" uniqueConstraintName="position_fix_type_constraint" />
 			</column>
 			<column name="eta_month" type="int">
-				<constraints nullable="false" />
+				<constraints nullable="false" uniqueConstraintName="eta_month_constraint" />
 			</column>
 			<column name="eta_day" type="int">
-				<constraints nullable="false" />
+				<constraints nullable="false" uniqueConstraintName="eta_day_constraint" />
 			</column>
 			<column name="eta_hour" type="int">
-				<constraints nullable="false" />
+				<constraints nullable="false" uniqueConstraintName="eta_hour_constraint" />
 			</column>
 			<column name="eta_minute" type="int">
-				<constraints nullable="false" />
+				<constraints nullable="false" uniqueConstraintName="eta_minute_constraint" />
 			</column>
 			<column name="draught" type="double precision">
-				<constraints nullable="false" />
+				<constraints nullable="false" uniqueConstraintName="draught_constraint" />
 			</column>
 			<column name="destination" type="varchar(255)">
-				<constraints nullable="false" />
+				<constraints nullable="false" uniqueConstraintName="destination_constraint" />
 			</column>
 			<column name="terminal_ready" type="boolean">
-				<constraints nullable="false" />
+				<constraints nullable="false" uniqueConstraintName="terminal_ready_constraint" />
 			</column>
 		</createTable>
 	</changeSet>
@@ -82,52 +82,52 @@
 	<changeSet id="3" author="patrick.gotthard">
 		<createTable tableName="position_report">
 			<column name="id" type="int" autoIncrement="true">
-				<constraints nullable="false" primaryKey="true" />
+				<constraints nullable="false" primaryKey="true" uniqueConstraintName="id_constraint" />
 			</column>
 			<column name="mmsi_id" type="int">
-				<constraints nullable="false" />
+				<constraints nullable="false" uniqueConstraintName="mmsi_id_constraint" />
 			</column>
 			<column name="creation_date" type="timestamp">
-				<constraints nullable="false" />
+				<constraints nullable="false" uniqueConstraintName="creation_date_constraint" />
 			</column>
 			<column name="repeat_indicator" type="int">
-				<constraints nullable="false" />
+				<constraints nullable="false" uniqueConstraintName="repeat_indicator_constraint" />
 			</column>
 			<column name="navigation_status" type="int">
-				<constraints nullable="false" />
+				<constraints nullable="false" uniqueConstraintName="navigation_status_constraint" />
 			</column>
 			<column name="rate_of_turn" type="double precision">
-				<constraints nullable="false" />
+				<constraints nullable="false" uniqueConstraintName="rate_of_turn_constraint" />
 			</column>
 			<column name="speed_over_ground" type="double precision">
-				<constraints nullable="false" />
+				<constraints nullable="false" uniqueConstraintName="speed_over_ground_constraint" />
 			</column>
 			<column name="position_accurate" type="boolean">
-				<constraints nullable="false" />
+				<constraints nullable="false" uniqueConstraintName="position_accurate_constraint" />
 			</column>
 			<column name="longitude" type="double precision">
-				<constraints nullable="false" />
+				<constraints nullable="false" uniqueConstraintName="longitude_constraint" />
 			</column>
 			<column name="latitude" type="double precision">
-				<constraints nullable="false" />
+				<constraints nullable="false" uniqueConstraintName="latitude_constraint" />
 			</column>
 			<column name="course_over_ground" type="double precision">
-				<constraints nullable="false" />
+				<constraints nullable="false" uniqueConstraintName="course_over_ground_constraint" />
 			</column>
 			<column name="true_heading" type="int">
-				<constraints nullable="false" />
+				<constraints nullable="false" uniqueConstraintName="true_heading_constraint" />
 			</column>
 			<column name="timestamp" type="int">
-				<constraints nullable="false" />
+				<constraints nullable="false" uniqueConstraintName="timestamp_constraint" />
 			</column>
 			<column name="maneuver_indicator" type="int">
-				<constraints nullable="false" />
+				<constraints nullable="false" uniqueConstraintName="maneuver_indicator_constraint" />
 			</column>
 			<column name="raim_used" type="boolean">
-				<constraints nullable="false" />
+				<constraints nullable="false" uniqueConstraintName="raim_used_constraint" />
 			</column>
 			<column name="radio_status" type="int">
-				<constraints nullable="false" />
+				<constraints nullable="false" uniqueConstraintName="radio_status_constraint" />
 			</column>
 		</createTable>
 	</changeSet>

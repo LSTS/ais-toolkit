@@ -58,6 +58,6 @@
 	</task:scheduled-tasks>
 
 	<!-- Beans -->
-	<bean id="contentGenerator" class="de.baderjene.aistoolkit.aisreceiver.web.MarkerGenerator" />
+	<bean id="markerGenerator" class="de.baderjene.aistoolkit.aisreceiver.web.MarkerGenerator" />
 
 </beans>

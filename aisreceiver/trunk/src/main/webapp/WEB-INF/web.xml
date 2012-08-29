@@ -7,25 +7,20 @@
 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>WEB-INF/spring.xml</param-value>
+		<param-value>WEB-INF/applicationContext.xml</param-value>
 	</context-param>
-
-	<context-param>
-		<param-name>log4jConfigLocation</param-name>
-		<param-value>log4j.properties</param-value>
-	</context-param>
-
+	
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
 	<servlet>
-		<servlet-name>contentGenerator</servlet-name>
+		<servlet-name>markerGenerator</servlet-name>
 		<servlet-class>org.springframework.web.context.support.HttpRequestHandlerServlet</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>contentGenerator</servlet-name>
+		<servlet-name>markerGenerator</servlet-name>
 		<url-pattern>/ajax</url-pattern>
 	</servlet-mapping>
 

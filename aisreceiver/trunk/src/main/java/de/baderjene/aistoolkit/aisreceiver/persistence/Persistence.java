@@ -14,13 +14,13 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import de.baderjene.aistoolkit.aisparser.PositionReportDTO;
-import de.baderjene.aistoolkit.aisparser.VesselDataDTO;
+import de.baderjene.aistoolkit.aisparser.message.Message01;
+import de.baderjene.aistoolkit.aisparser.message.Message05;
 
 /**
  * The persistence class is used to store AIS messages to the database and to read from the database.
  * 
- * @author Patrick Gotthard
+ * @author Patrick Gotthard <patrick.gotthard@bader-jene.de>
  * 
  */
 @Component
@@ -47,11 +47,11 @@ public class Persistence {
      * 
      * @param dto the position report
      */
-    public void save(final PositionReportDTO dto) {
+    public void save(final Message01 dto) {
         final Session session = factory.getCurrentSession();
         final PositionReport report = new PositionReport();
         report.setCreationDate(new Date());
-        report.setMmsi(getMMSI(dto.getMmsi()));
+        report.setMmsi(getMMSI(dto.getSourceMmsi()));
         report.setRepeatIndicator(dto.getRepeatIndicator());
         report.setNavigationStatus(dto.getNavigationStatus());
         report.setRateOfTurn(dto.getRateOfTurn());
@@ -73,15 +73,18 @@ public class Persistence {
      * 
      * @param dto the vessel data
      */
-    public void save(final VesselDataDTO dto) {
+    public void save(final Message05 dto) {
+
+        final MMSI mmsi = getMMSI(dto.getSourceMmsi());
+
         final Session session = factory.getCurrentSession();
         final Criteria criteria = session.createCriteria(VesselData.class);
-        criteria.add(Restrictions.eq("imoNumber", dto.getImoNumber()));
+        criteria.add(Restrictions.eq("mmsi", mmsi));
         VesselData vesselData = (VesselData) criteria.uniqueResult();
         if (vesselData == null) {
             vesselData = new VesselData();
         }
-        vesselData.setMmsi(getMMSI(dto.getMmsi()));
+        vesselData.setMmsi(mmsi);
         vesselData.setAisVersion(dto.getAisVersion());
         vesselData.setImoNumber(dto.getImoNumber());
         vesselData.setCallSign(dto.getCallSign().trim());
