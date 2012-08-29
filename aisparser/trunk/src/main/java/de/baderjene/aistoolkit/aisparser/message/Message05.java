@@ -1,17 +1,13 @@
-package de.baderjene.aistoolkit.aisparser;
+package de.baderjene.aistoolkit.aisparser.message;
 
 /**
- * This class holds information about a vessel. This is the information of ais message type 5.<br />
- * Refer to http://gpsd.berlios.de/AIVDM.html#_type_5_static_and_voyage_related_data for more information.
+ * This class represents an AIS message of type 5.
  * 
  * @author Patrick Gotthard <mailto:patrick.gotthard@bader-jene.de>
  * 
  */
-public class VesselDataDTO {
+public class Message05 extends Message {
 
-    private int aisMessageType;
-    private int repeatIndicator;
-    private int mmsi;
     private int aisVersion;
     private int imoNumber;
     private String callSign;
@@ -29,60 +25,6 @@ public class VesselDataDTO {
     private double draught;
     private String destination;
     private boolean terminalReady;
-
-    /**
-     * Get the AIS message type.
-     * 
-     * @return the AIS message type
-     */
-    public int getAisMessageType() {
-        return aisMessageType;
-    }
-
-    /**
-     * Set the AIS message type.
-     * 
-     * @param aisMessageType the AIS message type
-     */
-    public void setAisMessageType(final int aisMessageType) {
-        this.aisMessageType = aisMessageType;
-    }
-
-    /**
-     * Get the repeat indicator.
-     * 
-     * @return the repeat indicator
-     */
-    public int getRepeatIndicator() {
-        return repeatIndicator;
-    }
-
-    /**
-     * Set the repeat indicator.
-     * 
-     * @param repeatIndicator the repeat indicator
-     */
-    public void setRepeatIndicator(final int repeatIndicator) {
-        this.repeatIndicator = repeatIndicator;
-    }
-
-    /**
-     * Get the MMSI.
-     * 
-     * @return the MMSI
-     */
-    public int getMmsi() {
-        return mmsi;
-    }
-
-    /**
-     * Set the MMSI.
-     * 
-     * @param mmsi the MMSI
-     */
-    public void setMmsi(final int mmsi) {
-        this.mmsi = mmsi;
-    }
 
     /**
      * Get the used AIS version. Possible values:
@@ -524,53 +466,6 @@ public class VesselDataDTO {
      */
     public void setTerminalReady(final boolean terminalReady) {
         this.terminalReady = terminalReady;
-    }
-
-    @Override
-    public String toString() {
-        final StringBuilder builder = new StringBuilder();
-        builder.append("VesselDataDTO [aisMessageType=");
-        builder.append(aisMessageType);
-        builder.append(", repeatIndicator=");
-        builder.append(repeatIndicator);
-        builder.append(", mmsi=");
-        builder.append(mmsi);
-        builder.append(", aisVersion=");
-        builder.append(aisVersion);
-        builder.append(", imoNumber=");
-        builder.append(imoNumber);
-        builder.append(", callSign=");
-        builder.append(callSign);
-        builder.append(", vesselName=");
-        builder.append(vesselName);
-        builder.append(", shipType=");
-        builder.append(shipType);
-        builder.append(", dimensionToBow=");
-        builder.append(dimensionToBow);
-        builder.append(", dimensionToStern=");
-        builder.append(dimensionToStern);
-        builder.append(", dimensionToPort=");
-        builder.append(dimensionToPort);
-        builder.append(", dimensionToStarboard=");
-        builder.append(dimensionToStarboard);
-        builder.append(", positionFixType=");
-        builder.append(positionFixType);
-        builder.append(", etaMonth=");
-        builder.append(etaMonth);
-        builder.append(", etaDay=");
-        builder.append(etaDay);
-        builder.append(", etaHour=");
-        builder.append(etaHour);
-        builder.append(", etaMinute=");
-        builder.append(etaMinute);
-        builder.append(", draught=");
-        builder.append(draught);
-        builder.append(", destination=");
-        builder.append(destination);
-        builder.append(", terminalReady=");
-        builder.append(terminalReady);
-        builder.append("]");
-        return builder.toString();
     }
 
 }
