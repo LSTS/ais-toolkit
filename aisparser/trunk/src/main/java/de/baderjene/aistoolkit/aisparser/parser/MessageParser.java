@@ -53,8 +53,7 @@ public class MessageParser extends AbstractMessageParser {
             }
 
         } catch (final AISParserException e) {
-            // only for debugging purposes
-            // e.printStackTrace();
+            e.printStackTrace();
         }
 
         return parsedMessage;

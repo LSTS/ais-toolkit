@@ -35,8 +35,8 @@ public class Message01Parser extends AbstractMessageParser {
         final int rateOfTurn = parseSignedInteger(42, 49);
         final double speedOverGround = parseInteger(50, 59) / 10.0;
         final boolean positionAccurate = parseBoolean(60);
-        final double longitude = parseInteger(61, 88) / 600000.0;
-        final double latitude = parseInteger(89, 115) / 600000.0;
+        final double longitude = parseSignedInteger(61, 88) / 600000.0;
+        final double latitude = parseSignedInteger(89, 115) / 600000.0;
         final double courseOverGround = parseInteger(116, 127) / 10.0;
         final int trueHeading = parseInteger(128, 136);
         final int timestamp = parseInteger(137, 142);
