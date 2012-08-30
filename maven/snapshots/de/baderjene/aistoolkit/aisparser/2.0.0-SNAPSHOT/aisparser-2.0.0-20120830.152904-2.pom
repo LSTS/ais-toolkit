@@ -1,0 +1,36 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>de.baderjene.aistoolkit</groupId>
+        <artifactId>aistoolkit-master</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>aisparser</artifactId>
+    <version>2.0.0-SNAPSHOT</version>
+
+    <scm>
+        <url>http://ais-toolkit.googlecode.com/svn/aisparser</url>
+        <connection>scm:svn:https://ais-toolkit.googlecode.com/svn/aisparser</connection>
+        <developerConnection>scm:svn:https://ais-toolkit.googlecode.com/svn/aisparser</developerConnection>
+    </scm>
+
+    <repositories>
+        <repository>
+            <id>ais-toolkit-releases</id>
+            <url>http://ais-toolkit.googlecode.com/svn/maven/releases</url>
+            <releases><enabled>true</enabled></releases>
+            <snapshots><enabled>false</enabled></snapshots>
+        </repository>
+        <repository>
+            <id>ais-toolkit-snapshots</id>
+            <url>http://ais-toolkit.googlecode.com/svn/maven/snapshots</url>
+            <releases><enabled>false</enabled></releases>
+            <snapshots><enabled>true</enabled></snapshots>
+        </repository>
+    </repositories>
+
+</project>
