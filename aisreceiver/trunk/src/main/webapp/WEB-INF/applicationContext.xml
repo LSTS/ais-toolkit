@@ -53,6 +53,7 @@
 	<tx:annotation-driven transaction-manager="txManager" />
 
 	<!-- Database Cleanup -->
+	<bean id="persistence" class="de.baderjene.aistoolkit.aisreceiver.persistence.Persistence" />
 	<task:scheduled-tasks>
 		<task:scheduled ref="persistence" method="cleanup" fixed-rate="10800000" />
 	</task:scheduled-tasks>
