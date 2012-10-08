@@ -1,64 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xmlns:context="http://www.springframework.org/schema/context"	
-	xmlns:tx="http://www.springframework.org/schema/tx"
-	xmlns:task="http://www.springframework.org/schema/task"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans 
-		http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
-		http://www.springframework.org/schema/context 
-		http://www.springframework.org/schema/context/spring-context-3.1.xsd
-		http://www.springframework.org/schema/tx 
-		http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
-		http://www.springframework.org/schema/task
-		http://www.springframework.org/schema/task/spring-task-3.1.xsd">
-		
-	<!-- Autowiring -->
-	<context:annotation-config />
-	<context:component-scan base-package="de.baderjene.aistoolkit.aisreceiver" />
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xmlns:context="http://www.springframework.org/schema/context"   
+        xmlns:tx="http://www.springframework.org/schema/tx"
+        xmlns:task="http://www.springframework.org/schema/task"
+        xmlns:jaxws="http://cxf.apache.org/jaxws" 
+        xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+                http://www.springframework.org/schema/context 
+                http://www.springframework.org/schema/context/spring-context-3.1.xsd
+                http://www.springframework.org/schema/tx 
+                http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+                http://www.springframework.org/schema/task
+                http://www.springframework.org/schema/task/spring-task-3.1.xsd
+                http://cxf.apache.org/jaxws 
+                http://cxf.apache.org/schemas/jaxws.xsd">
+                
+        <!-- Imports -->
+        <import resource="classpath:META-INF/cxf/cxf.xml" />
+        <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+        
+        <!-- Autowiring -->
+        <context:annotation-config />
 
-	<!-- Properties -->
-	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" />
-	<bean class="org.springframework.beans.factory.config.PropertyOverrideConfigurer">
-		<property name="location" value="file:///${catalina.home}/conf/aisreceiver.properties" />
-		<property name="ignoreResourceNotFound" value="true" />
-	</bean>
+        <!-- Properties -->
+        <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" />
+        <bean class="org.springframework.beans.factory.config.PropertyOverrideConfigurer">
+                <property name="location" value="file:///${catalina.home}/conf/aisreceiver.properties" />
+                <property name="ignoreResourceNotFound" value="true" />
+        </bean>
 
-	<!-- DataSource -->
-	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-		<property name="driverClass" value="org.apache.derby.jdbc.EmbeddedDriver" />
-		<property name="jdbcUrl" value="jdbc:derby:${catalina.home}/.aisreceiver;create=true" />
-		<property name="user" value="" />
-		<property name="password" value="" />
-		<property name="minPoolSize" value="1" />
-		<property name="maxPoolSize" value="5" />
-	</bean>
+        <!-- DataSource -->
+        <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+                <property name="driverClass" value="org.apache.derby.jdbc.EmbeddedDriver" />
+                <property name="jdbcUrl" value="jdbc:derby:${catalina.home}/.aisreceiver;create=true" />
+                <property name="user" value="" />
+                <property name="password" value="" />
+                <property name="minPoolSize" value="1" />
+                <property name="maxPoolSize" value="5" />
+        </bean>
 
-	<!-- Liquibase -->
-	<bean id="liquibase" class="liquibase.integration.spring.SpringLiquibase">
-		<property name="dataSource" ref="dataSource" />
-		<property name="changeLog" value="WEB-INF/liquibase/changelog-master.xml" />
-	</bean>
+        <!-- Liquibase -->
+        <bean id="liquibase" class="liquibase.integration.spring.SpringLiquibase">
+                <property name="dataSource" ref="dataSource" />
+                <property name="changeLog" value="WEB-INF/liquibase/changelog-master.xml" />
+        </bean>
 
-	<!-- Hibernate -->
-	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean" depends-on="liquibase">
-		<property name="dataSource" ref="dataSource" />
-		<property name="packagesToScan" value="de.baderjene.aistoolkit.aisreceiver.persistence" />
-	</bean>
+        <!-- Hibernate -->
+        <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean" depends-on="liquibase">
+                <property name="dataSource" ref="dataSource" />
+                <property name="annotatedClasses">
+                        <list>
+                                <value>de.baderjene.aistoolkit.aisreceiver.persistence.MMSI</value>
+                                <value>de.baderjene.aistoolkit.aisreceiver.persistence.PositionReport</value>
+                                <value>de.baderjene.aistoolkit.aisreceiver.persistence.VesselData</value>
+                        </list>
+                </property>
+        </bean>
 
-	<!-- Transaction Manager -->
-	<bean id="txManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-	<tx:annotation-driven transaction-manager="txManager" />
+        <!-- Transaction Manager -->
+        <tx:annotation-driven transaction-manager="txManager" />
+        <bean id="txManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+                <property name="sessionFactory" ref="sessionFactory" />
+        </bean>
 
-	<!-- Database Cleanup -->
-	<bean id="persistence" class="de.baderjene.aistoolkit.aisreceiver.persistence.Persistence" />
-	<task:scheduled-tasks>
-		<task:scheduled ref="persistence" method="cleanup" fixed-rate="10800000" />
-	</task:scheduled-tasks>
+        <!-- Database Cleanup -->
+         <!--  <task:scheduled-tasks>
+                <task:scheduled ref="persistence" method="cleanup" fixed-rate="10800000" />
+        </task:scheduled-tasks>-->
 
-	<!-- Beans -->
-	<bean id="markerGenerator" class="de.baderjene.aistoolkit.aisreceiver.web.MarkerGenerator" />
+        <!-- Beans -->
+        <bean id="persistence" class="de.baderjene.aistoolkit.aisreceiver.persistence.Persistence" />
+        <bean id="contentGenerator" class="de.baderjene.aistoolkit.aisreceiver.web.MarkerGenerator" />
+        <bean id="receiver" class="de.baderjene.aistoolkit.aisreceiver.Receiver" />
+
+        <!-- Webservices -->
+        <bean id="aisService" class="de.baderjene.aistoolkit.aisreceiver.soap.SOAPService" />
+        <jaxws:endpoint implementor="#aisService" address="/ais" />
+
 
 </beans>
