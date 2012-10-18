@@ -38,6 +38,7 @@ public final class Receiver implements AISObserver, Runnable {
         try {
             serverSocket = new ServerSocket(8000);
         } catch (final IOException e) {
+            e.printStackTrace();
             return;
         }
 
@@ -49,19 +50,20 @@ public final class Receiver implements AISObserver, Runnable {
                 new Thread(new Handler(parser, serverSocket.accept())).start();
                 System.out.println("Antenna connected.");
             } catch (final IOException e) {
+                e.printStackTrace();
             }
         }
     }
 
     @Override
     public void update(final Message message) {
-        //System.out.println("Message received");
+        // System.out.println("Message received");
         final int type = message.getType();
         if (type == 1 || type == 2 || type == 3) {
-            //System.out.println("saving message. type: 1 or 2 or 3");
+            // System.out.println("saving message. type: 1 or 2 or 3");
             persistence.save((Message01) message);
         } else if (type == 5) {
-            //System.out.println("saving message. type: 5");
+            // System.out.println("saving message. type: 5");
             persistence.save((Message05) message);
         }
     }
