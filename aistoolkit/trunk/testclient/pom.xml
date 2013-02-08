@@ -3,33 +3,43 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>de.baderjene.aistoolkit</groupId>
+	<parent>
+		<groupId>de.baderjene.aistoolkit</groupId>
+		<artifactId>aistoolkit-master</artifactId>
+		<version>2.0.0-SNAPSHOT</version>
+		<relativePath>..</relativePath>
+	</parent>
+
 	<artifactId>aistestclient</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.5.1</version>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+	<repositories>
+		<repository>
+			<id>ais-toolkit-releases</id>
+			<url>http://ais-toolkit.googlecode.com/svn/maven/releases</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>ais-toolkit-snapshots</id>
+			<url>http://ais-toolkit.googlecode.com/svn/maven/snapshots</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 
 	<dependencies>
 		<dependency>
 			<groupId>de.baderjene.aistoolkit</groupId>
 			<artifactId>aisparser</artifactId>
-			<version>2.0.0-SNAPSHOT</version>
+			<version>${project.parent.version}</version>
 		</dependency>
 	</dependencies>
 

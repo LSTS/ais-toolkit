@@ -2,38 +2,40 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	
+
 	<parent>
 		<groupId>de.baderjene.aistoolkit</groupId>
 		<artifactId>aistoolkit-master</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
+		<version>2.0.0-SNAPSHOT</version>
+		<relativePath>..</relativePath>
 	</parent>
-	
+
 	<artifactId>aisreceiver</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	
-    <scm>
-        <url>http://ais-toolkit.googlecode.com/svn/aisreceiver</url>
-        <connection>scm:svn:http://ais-toolkit.googlecode.com/svn/aisreceiver</connection>
-        <developerConnection>scm:svn:https://ais-toolkit.googlecode.com/svn/aisreceiver</developerConnection>
-    </scm>
-    
-    <repositories>
-        <repository>
-            <id>ais-toolkit-releases</id>
-            <url>http://ais-toolkit.googlecode.com/svn/maven/releases</url>
-            <releases><enabled>true</enabled></releases>
-            <snapshots><enabled>false</enabled></snapshots>
-        </repository>
-        <repository>
-            <id>ais-toolkit-snapshots</id>
-            <url>http://ais-toolkit.googlecode.com/svn/maven/snapshots</url>
-            <releases><enabled>false</enabled></releases>
-            <snapshots><enabled>true</enabled></snapshots>
-        </repository>
-    </repositories>
-    
+
+	<repositories>
+		<repository>
+			<id>ais-toolkit-releases</id>
+			<url>http://ais-toolkit.googlecode.com/svn/maven/releases</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>ais-toolkit-snapshots</id>
+			<url>http://ais-toolkit.googlecode.com/svn/maven/snapshots</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -46,22 +48,22 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>de.baderjene.aistoolkit</groupId>
 			<artifactId>aisparser</artifactId>
-			<version>2.0.0-SNAPSHOT</version>
+			<version>${project.parent.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
-			<version>3.1.2.RELEASE</version>
+			<version>3.1.4.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
-			<version>3.1.2.RELEASE</version>
+			<version>3.1.4.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>cglib</groupId>
@@ -71,7 +73,7 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-c3p0</artifactId>
-			<version>4.1.6.Final</version>
+			<version>4.1.9.Final</version>
 		</dependency>
 		<dependency>
 			<groupId>org.liquibase</groupId>
@@ -105,15 +107,15 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-                        <groupId>org.apache.cxf</groupId>
-                        <artifactId>cxf-rt-frontend-jaxws</artifactId>
-                        <version>2.5.2</version>
-                </dependency>
-                <dependency>
-                        <groupId>org.apache.cxf</groupId>
-                        <artifactId>cxf-rt-transports-http</artifactId>
-                        <version>2.5.2</version>
-                </dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxws</artifactId>
+			<version>2.5.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http</artifactId>
+			<version>2.5.2</version>
+		</dependency>
 	</dependencies>
 
 </project>
