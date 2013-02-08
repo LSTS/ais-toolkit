@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC "-//Puppy Crawl//DTD Check Configuration 1.3//EN" "http://www.puppycrawl.com/dtds/configuration_1_3.dtd">
+<!-- This configuration file was written by the eclipse-cs plugin configuration 
+	editor -->
+<!-- Checkstyle-Configuration: BUJ checkstyle Description: none -->
+<module name="Checker">
+	<property name="severity" value="warning" />
+	<module name="TreeWalker">
+		<property name="cacheFile" value="target/checkstyle.cache" />
+		<property name="tabWidth" value="4" />
+		<module name="JavadocMethod">
+			<property name="severity" value="warning" />
+			<property name="allowUndeclaredRTE" value="true" />
+			<property name="allowMissingPropertyJavadoc" value="true" />
+			<property name="suppressLoadErrors" value="true" />
+		</module>
+		<module name="JavadocType">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="JavadocVariable">
+			<property name="severity" value="ignore" />
+			<metadata name="net.sf.eclipsecs.core.lastEnabledSeverity"
+				value="inherit" />
+		</module>
+		<module name="JavadocStyle">
+			<property name="severity" value="ignore" />
+			<metadata name="net.sf.eclipsecs.core.lastEnabledSeverity"
+				value="inherit" />
+		</module>
+		<module name="AvoidStarImport">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="IllegalImport">
+			<property name="severity" value="error" />
+		</module>
+		<module name="RedundantImport">
+			<property name="severity" value="warning" />
+			<metadata name="net.sf.eclipsecs.core.lastEnabledSeverity"
+				value="inherit" />
+		</module>
+		<module name="UnusedImports">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="MethodLength">
+			<property name="severity" value="warning" />
+			<property name="max" value="220" />
+			<property name="countEmpty" value="false" />
+		</module>
+		<module name="ParameterNumber">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="EmptyForIteratorPad">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="MethodParamPad">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="NoWhitespaceAfter">
+			<property name="severity" value="warning" />
+			<property name="tokens"
+				value="BNOT,DEC,DOT,INC,LNOT,UNARY_MINUS,UNARY_PLUS" />
+		</module>
+		<module name="NoWhitespaceBefore">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="OperatorWrap">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="ParenPad">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="TypecastParenPad">
+			<property name="severity" value="warning" />
+			<property name="tokens" value="RPAREN,TYPECAST" />
+		</module>
+		<module name="WhitespaceAfter">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="WhitespaceAround">
+			<property name="severity" value="warning" />
+			<property name="tokens"
+				value="ASSIGN,BAND,BAND_ASSIGN,BOR,BOR_ASSIGN,BSR,BSR_ASSIGN,BXOR,BXOR_ASSIGN,COLON,DIV,DIV_ASSIGN,EQUAL,GE,GT,LAND,LCURLY,LE,LITERAL_ASSERT,LITERAL_CATCH,LITERAL_DO,LITERAL_ELSE,LITERAL_FINALLY,LITERAL_FOR,LITERAL_IF,LITERAL_RETURN,LITERAL_SYNCHRONIZED,LITERAL_TRY,LITERAL_WHILE,LOR,LT,MINUS,MINUS_ASSIGN,MOD,MOD_ASSIGN,NOT_EQUAL,PLUS,PLUS_ASSIGN,QUESTION,RCURLY,SL,SLIST,SL_ASSIGN,SR,SR_ASSIGN,STAR,STAR_ASSIGN,LITERAL_ASSERT,TYPE_EXTENSION_AND" />
+		</module>
+		<module name="ModifierOrder">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="RedundantModifier">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="AvoidNestedBlocks">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="EmptyBlock">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="LeftCurly">
+			<property name="severity" value="warning" />
+			<property name="maxLineLength" value="160" />
+		</module>
+		<module name="NeedBraces">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="RightCurly">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="DoubleCheckedLocking">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="EmptyStatement">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="EqualsHashCode">
+			<property name="severity" value="error" />
+		</module>
+		<module name="HiddenField">
+			<property name="severity" value="info" />
+			<property name="ignoreConstructorParameter" value="true" />
+			<property name="ignoreSetter" value="true" />
+			<metadata name="net.sf.eclipsecs.core.lastEnabledSeverity"
+				value="inherit" />
+		</module>
+		<module name="IllegalInstantiation">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="InnerAssignment">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="MissingSwitchDefault">
+			<property name="severity" value="error" />
+		</module>
+		<module name="SimplifyBooleanExpression">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="SimplifyBooleanReturn">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="FinalClass">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="HideUtilityClassConstructor">
+			<property name="severity" value="error" />
+		</module>
+		<module name="InterfaceIsType">
+			<property name="severity" value="error" />
+		</module>
+		<module name="VisibilityModifier">
+			<property name="severity" value="error" />
+		</module>
+		<module name="FinalParameters">
+			<property name="severity" value="warning" />
+			<property name="tokens" value="METHOD_DEF,CTOR_DEF,LITERAL_CATCH" />
+		</module>
+		<module name="UpperEll">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="ArrayTypeStyle">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="Indentation">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="EmptyForInitializerPad">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="CovariantEquals">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="DefaultComesLast">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="DeclarationOrder">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="MultipleVariableDeclarations">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="PackageDeclaration">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="ParameterAssignment">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="ReturnCount">
+			<property name="severity" value="warning" />
+			<property name="max" value="4" />
+		</module>
+		<module name="StringLiteralEquality">
+			<property name="severity" value="error" />
+		</module>
+		<module name="BooleanExpressionComplexity">
+			<property name="severity" value="info" />
+			<property name="max" value="5" />
+		</module>
+		<module name="MissingOverride">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="MissingDeprecated">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="FallThrough">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="AbstractClassName">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="ClassTypeParameterName">
+			<property name="severity" value="warning" />
+			<property name="format" value="^[A-Z]+$" />
+		</module>
+		<module name="ConstantName">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="LocalFinalVariableName">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="LocalVariableName">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="MemberName">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="MethodName">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="MethodTypeParameterName">
+			<property name="severity" value="warning" />
+			<property name="format" value="^[A-Z]+$" />
+		</module>
+		<module name="PackageName">
+			<property name="severity" value="warning" />
+			<property name="format" value="^[a-z]{2,16}([.][a-z0-9]{2,16})*$" />
+		</module>
+		<module name="ParameterName">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="StaticVariableName">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="TypeName">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="LineLength">
+			<property name="severity" value="info" />
+			<property name="max" value="160" />
+			<property name="tabWidth" value="4" />
+		</module>
+		<module name="OuterTypeNumber">
+			<property name="severity" value="error" />
+		</module>
+		<module name="GenericWhitespace">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="EqualsAvoidNull">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="IllegalCatch">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="IllegalThrows">
+			<property name="severity" value="warning" />
+		</module>
+		<module name="NoFinalizer">
+			<property name="severity" value="info" />
+		</module>
+		<module name="NoClone">
+			<property name="severity" value="info" />
+		</module>
+	</module>
+	<module name="FileTabCharacter">
+		<property name="severity" value="error" />
+	</module>
+	<module name="Translation">
+		<property name="severity" value="warning" />
+	</module>
+	<module name="JavadocPackage">
+		<property name="severity" value="ignore" />
+		<metadata name="net.sf.eclipsecs.core.lastEnabledSeverity"
+			value="inherit" />
+	</module>
+	<module name="FileLength">
+		<property name="severity" value="warning" />
+	</module>
+	<module name="StrictDuplicateCode">
+		<property name="severity" value="info" />
+		<property name="min" value="24" />
+	</module>
+</module>
