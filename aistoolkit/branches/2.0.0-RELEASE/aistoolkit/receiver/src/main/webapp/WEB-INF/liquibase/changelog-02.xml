@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+	<!-- remove unique constraint for imo numbers from vessel data table -->
+	<changeSet id="1" author="patrick.gotthard">
+		<dropUniqueConstraint tableName="vessel_data" constraintName="imo_constraint" />
+	</changeSet>
+
+</databaseChangeLog>
